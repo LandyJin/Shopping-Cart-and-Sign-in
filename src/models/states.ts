@@ -17,7 +17,8 @@ export const useGenerationStore = create<GenerationState>() ((set) => ({
     setProducts: (products: Product[]) => set({ products }),
     isOpenCart: false,
     setIsOpenCart: (isOpenCart: boolean) => set({ isOpenCart }),
-    cartItems: JSON.parse(localStorage.getItem('cartItems') || '[]'),
+    // cartItems: JSON.parse(localStorage.getItem('cartItems') || '[]'),
+    cartItems: [],
     setCartItems: (cartItems: CartItem[]) => set({ cartItems }),
     addedItem: undefined,
     setAddedItem: (addedItem: CartItem) => set({ addedItem })
