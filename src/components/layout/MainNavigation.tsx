@@ -5,11 +5,14 @@ import { useGenerationStore } from '@/models/states';
 import getProducts from '../../app/api/products';
 import { useEffect } from 'react';
 import ItemAddedToCart from "../shoppingCart/ItemAddedToCart";
+import { UserInfo } from "@/models/types";
+import Usercard from "../ui/userscard";
 
-export default function MainNavigation () {
+export default function MainNavigation ({userInfo}: {userInfo?: UserInfo}) {
     const generationStore  = useGenerationStore()
 
     useEffect(() => {
+        generationStore.setCartItems(JSON.parse(localStorage.getItem('cartItems') || '[]'))
         async function fetchAPI() {
             const response = await getProducts()
             generationStore.setProducts(response)
@@ -27,9 +30,6 @@ export default function MainNavigation () {
             <Link href='/' className="text-3xl text-white font-bold">Shopping system</Link>
             <nav>
                 <ul>
-                    <li>
-                        <Link href='/products'>All products</Link>
-                    </li>
                     <li>
                         <Link href='/shoppingcart'>
                             <div className="w-10 h-10 relative text-[#77002e] hover:bg-white p-2 bg-[#fcb8d2] rounded-full">
@@ -56,6 +56,17 @@ export default function MainNavigation () {
                                 </div>
                             </div>
                         </Link>
+                    </li>
+                    {userInfo &&(
+                    <li>
+                        <Usercard userInfo={userInfo}/>
+                    </li>
+                    )}
+                    <li>
+                        {userInfo ? 
+                            <Link href='/api/auth/signout'>Sign out</Link> :
+                            <Link href='/api/auth/signin'>Sign in</Link>
+                        }
                     </li>
                 </ul>
             </nav>

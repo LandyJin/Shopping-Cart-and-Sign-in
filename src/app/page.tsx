@@ -1,10 +1,14 @@
-// import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+'use client'
+import ProductsList from "@/components/products/productsList"
+import { useGenerationStore } from "@/models/states"
+
 // import 'bootstrap/dist/css/bootstrap.css';
 export default function Home() {
+  const products = useGenerationStore((state) => state.products)
   return (
-    <>
-      <h1>Hi</h1>
-    </>
+      <>
+          <ProductsList products={products}/>
+      </>
   )
 }
 

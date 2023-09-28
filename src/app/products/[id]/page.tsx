@@ -2,16 +2,15 @@
 // import { useGenerationStore } from "@/models/states"
 
 import getProducts from "@/app/api/products"
-import ItemAddedToCart from "@/components/shoppingCart/ItemAddedToCart"
 import useAddToCart from "@/hooks/useAddToCart"
 import { Product } from "@/models/types"
 import { useRouter } from "next/navigation"
-import Router from "next/router"
 import { useEffect, useState } from "react"
-const router = useRouter()
 
 export default function ProductDetails({params}: { params: { id: string } }) {
+    const router = useRouter()
     const id = params.id
+    console.log(id)
     // Zustand
     const [product, setProduct] = useState<Product>()
 

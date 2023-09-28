@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 import AuthProvider from '@/components/AuthProvider';
 import { getServerSession } from "next-auth/next"
 import { options } from './api/auth/[...nextauth]/options';
+import { UserInfo } from '@/models/types';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,19 +21,15 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const session = await getServerSession(options)
-  let isSignin
-
-  if (!session) {
-      console.log("not sign in" + session)
-  } else {
-    console.log(session)
-  }
+  let userInfo = undefined
+  if (session) userInfo = session.user as UserInfo
+  console.log(userInfo)
 
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
         <AuthProvider>  
-          <Layout>
+          <Layout userInfo={userInfo}>
             {children}
           </Layout>
         </AuthProvider>
