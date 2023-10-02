@@ -12,3 +12,33 @@ a {
     text-decoration: none;
     color: white;
   }
+
+label {
+  /* color: #B4886B; */
+  font-weight: bold;
+  display: block;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid lightgrey;
+  box-shadow: 3px 3px 5px grey;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  background-color: #77002e;
+  box-shadow: 3px 3px 5px grey;
+}
+
+button:focus {
+  outline: 2px solid gray;
+  font-weight: bold;
+  color: white;
+}
+
+.error {
+  color: red;
+}

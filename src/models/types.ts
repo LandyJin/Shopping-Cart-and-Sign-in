@@ -1,13 +1,16 @@
-export type Product = {
-    title: string;
-    price: number;
-    description: string;
-    image: string;
-    id: string;
+export type CreateProduct = {
+  title: string;
+  price: number;
+  description: string;
+  image: string;
+}
+
+export type Product = CreateProduct & {
+  id: string;
 }
 
 export type CartItem = Product & {
-    quantity?: number;
+  quantity?: number;
 }
 
 export type UserInfo = {

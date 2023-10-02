@@ -58,14 +58,19 @@ export default function MainNavigation ({userInfo}: {userInfo?: UserInfo}) {
                         </Link>
                     </li>
                     {userInfo &&(
-                    <li>
-                        <Usercard userInfo={userInfo}/>
-                    </li>
+                        <>
+                            <li>
+                                <Usercard userInfo={userInfo}/>
+                            </li>
+                            <li>
+                                <Link href='/products/create'>Add a product</Link>
+                            </li>
+                        </>
                     )}
                     <li>
                         {userInfo ? 
                             <Link href='/api/auth/signout'>Sign out</Link> :
-                            <Link href='/api/auth/signin'>Sign in</Link>
+                            <Link href='/api/auth/signin'>Admin sign in</Link>
                         }
                     </li>
                 </ul>
