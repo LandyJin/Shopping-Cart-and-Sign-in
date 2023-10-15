@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "title": "BLACK Shirt",
+      "title": "BLACK Shirt 1",
       "price": 11,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "image": "https://img.freepik.com/premium-photo/close-up-black-t-shirt-isolated_57262-41.jpg",
@@ -83,6 +83,20 @@
       "price": 21,
       "image": "https://australiastudy.com/wp-content/uploads/2021/02/Events-Management-in-Australia.jpg",
       "id": 12
+    },
+    {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "title": "asds",
+      "price": 12,
+      "image": "https://australiastudy.com/wp-content/uploads/2021/02/Events-Management-in-Australia.jpg",
+      "id": 13
+    },
+    {
+      "title": "conditioner",
+      "price": 5,
+      "description": "test",
+      "image": "https://cottonon.com/dw/image/v2/BBDS_PRD/on/demandware.static/-/Sites-catalog-master-co-foundation/defau/dw078da4a8/9630954/9630954-01-2.jpg?sw=640&sh=960&sm=fit",
+      "id": 14
     }
   ]
 }

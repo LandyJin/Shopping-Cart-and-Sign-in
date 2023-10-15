@@ -35,7 +35,7 @@ export default function CreateForm() {
     function onSubmit(data: CreateProduct) {
         console.log(data)
         async function fetchAPI() {
-            const res = await fetch('http://localhost:4000/products', {
+            const res = await fetch('http://localhost:3000/products', {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(data)

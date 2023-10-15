@@ -2,7 +2,6 @@
 import Link from "next/link";
 import classes from './MainNavigation.module.css';
 import { useGenerationStore } from '@/models/states';
-import getProducts from '../../app/api/products';
 import { useEffect } from 'react';
 import ItemAddedToCart from "../shoppingCart/ItemAddedToCart";
 import { UserInfo } from "@/models/types";
@@ -14,7 +13,16 @@ export default function MainNavigation ({userInfo}: {userInfo?: UserInfo}) {
     useEffect(() => {
         generationStore.setCartItems(JSON.parse(localStorage.getItem('cartItems') || '[]'))
         async function fetchAPI() {
-            const response = await getProducts()
+            // fetch Next API
+            const response = await fetch(
+                'http://localhost:3000/api/products'
+            ).then(res => {
+                if (res.ok) {
+                    return res.json()
+                } else {
+                    throw new Error('error ' + res.status)
+                }
+            })
             generationStore.setProducts(response)
         }
         fetchAPI()

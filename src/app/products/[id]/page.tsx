@@ -1,7 +1,5 @@
 "use client"
 // import { useGenerationStore } from "@/models/states"
-
-import getProducts from "@/app/api/products"
 import useAddToCart from "@/hooks/useAddToCart"
 import { Product } from "@/models/types"
 import { useRouter } from "next/navigation"
@@ -16,15 +14,23 @@ export default function ProductDetails(
     const [product, setProduct] = useState<Product>()
 
     useEffect(() => {
-        async function fetchAPI() {
+        (async function fetchAPI() {
             try {
-                const response = await getProducts(id)
+                // fetch Next API
+                const response = await fetch(
+                    'http://localhost:3000/api/products/' + id
+                ).then(res => {
+                    if (res.ok) {
+                        return res.json()
+                    } else {
+                        throw new Error('error ' + res.status)
+                    }
+                })
                 setProduct(response)
             } catch {
                 router.push("/404")
             }
-        }
-        fetchAPI()
+        })()
     }, [id])
 
     const handleAddToCart =  useAddToCart(product)
